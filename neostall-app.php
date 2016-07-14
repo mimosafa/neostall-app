@@ -16,17 +16,12 @@ function _initialize_neostall_app() {
 		return;
 	}
 
-	$loader = dana_don_boom_boom_doo_autoloader();
+	$loader = new Composer\Autoload\ClassLoader();
 	$loader->setPsr4( 'NeoSystem\\', __DIR__ . '/class/NeoSystem' );
 	$loader->setPsr4( 'Neostall\\',  __DIR__ . '/class' );
+	$loader->register();
 
 	Neostall\Repositories::init();
-
-	if ( is_admin() ) {
-		$k = new mimosafa\WP\UI\Post( 'kitchencar' );
-		$lmc = Neostall\UI\MetaBox\LegacyMenuContent::getInstance();
-		$box = $lmc->meta_box()->context( 'normal' )->priority( 'high' );
-		$k->add_meta_box( $box );
-	}
+	Neostall\Route\Kitchencars::init();
 
 }

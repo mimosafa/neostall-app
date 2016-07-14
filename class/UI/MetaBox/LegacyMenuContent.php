@@ -1,26 +1,10 @@
 <?php
 namespace Neostall\UI\MetaBox;
 
-class LegacyMenuContent {
+class LegacyMenuContent extends \mimosafa\WP\UI\MetaBox {
 
-	private $meta_box;
-
-	public static function getInstance() {
-		static $instance;
-		return $instance ?: $instance = new self();
-	}
-
-	private function __construct() {
-		$this->meta_box = new \mimosafa\WP\UI\MetaBox( 'legacy-menu-contents' );
-		$this->meta_box
-			->title( 'Default Menu Contents (Legacy...)' )
-			->callback( [ $this, 'meta_box_callback' ] )
-		;
-	}
-
-	public function meta_box() {
-		return $this->meta_box;
-	}
+	protected $id = 'legacy-menu-contents';
+	protected $title = 'Default Menu Contents (Legacy...)';
 
 	public function meta_box_callback( \WP_Post $post ) {
 		$args = [ 'post' => $post ];
