@@ -25,10 +25,10 @@ class Kitchencars extends \mimosafa\WP\Route\Posts {
 		new UI\File\Kitchencar();
 	}
 	protected function init_edit_ui( Array $args ) {
-		var_dump( __METHOD__, $args );
+		# var_dump( __METHOD__, $args );
 	}
 	protected function init_frontend( Array $args ) {
-		var_dump( __METHOD__, $args );
+		# var_dump( __METHOD__, $args );
 	}
 
 }
